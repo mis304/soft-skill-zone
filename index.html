@@ -3,176 +3,157 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SOFT SKILL ZONE — Learn AI.. Lead Future.</title>
-  <meta name="description" content="SOFT SKILL ZONE — Computer & AI training institute in Ara, Bihar. Learn AI from 0 to expert. No coding, no technical background required." />
+  <title>Admin — SOFT SKILL ZONE</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
+  <div class="mobile-bar">
+    <button class="btn btn-ghost btn-sm" id="menuBtn">&#9776; Menu</button>
+    <span class="brand" style="font-size:16px;">SOFT SKILL <span class="gold">ZONE</span></span>
+  </div>
+  <div class="backdrop" id="backdrop"></div>
 
-  <!-- ===== Navbar ===== -->
-  <header class="navbar">
-    <div class="container nav-inner">
-      <a href="index.html" class="brand-wrap">
-        <span class="brand">SOFT SKILL <span class="gold">ZONE</span></span>
-        <span class="brand-sub">Learn AI.. Lead Future.</span>
-      </a>
-      <button class="nav-toggle" id="navToggle" aria-label="Menu">&#9776;</button>
-      <nav class="nav-links" id="navLinks">
-        <a href="#home">Home</a>
-        <a href="#courses">Courses</a>
-        <a href="#teacher">Teacher</a>
-        <a href="#workshop">Workshop</a>
-        <a href="#contact">Contact</a>
-        <a href="login.html" class="btn btn-gold btn-sm">Login</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- ===== Hero ===== -->
-  <section class="hero" id="home">
-    <div class="container hero-grid">
-      <div class="reveal in">
-        <span class="eyebrow">Computer &amp; AI Training Institute</span>
-        <h1>Sahi Prompt = <span class="gradient">Powerful Result</span></h1>
-        <p class="lead">0 se AI Expert bano. No coding, no technical background required — basic se advanced AI skills, real practice ke saath.</p>
-        <div class="hero-cta">
-          <a href="#courses" class="btn btn-gold">Explore Courses</a>
-          <a href="#contact" class="btn btn-ghost">Contact Us</a>
-        </div>
+  <div class="dash">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <a href="index.html" class="brand">SOFT SKILL <span class="gold">ZONE</span></a>
+      <div class="side-link active" data-view="dashboard">📊 Dashboard</div>
+      <div class="side-link" data-view="students">👥 Students</div>
+      <div class="side-link" data-view="courses">📚 Courses</div>
+      <div style="margin-top:24px;border-top:1px solid var(--card-border);padding-top:14px;">
+        <div class="side-link" id="sideLogout">🚪 Logout</div>
       </div>
-      <div class="hero-visual reveal in"><div class="orb">🤖</div></div>
-    </div>
-  </section>
+    </aside>
 
-  <!-- ===== USP strip ===== -->
-  <section class="usp section" style="padding:46px 0;">
-    <div class="container">
-      <div class="usp-grid">
-        <div class="usp-item"><span class="dot">◆</span><span><span class="t">Basic → Advanced</span><br>AI Skills</span></div>
-        <div class="usp-item"><span class="dot">◆</span><span><span class="t">Prompt likhna</span><br>+ AI control karna</span></div>
-        <div class="usp-item"><span class="dot">◆</span><span><span class="t">Office + Freelancing</span><br>use</span></div>
-        <div class="usp-item"><span class="dot">◆</span><span><span class="t">Real Practice</span><br>+ Live Examples</span></div>
-        <div class="usp-item"><span class="dot">◆</span><span><span class="t">No Coding</span><br>No Tech Background</span></div>
-      </div>
-      <p class="usp-tag">0 se AI Expert bano 🚀</p>
-    </div>
-  </section>
-
-  <!-- ===== Courses ===== -->
-  <section class="section" id="courses">
-    <div class="container">
-      <h2 class="section-title reveal">Our <span class="gold">Courses</span></h2>
-      <p class="section-sub reveal">Industry-ready AI &amp; computer skills — choose your path.</p>
-      <div class="cards" id="coursesGrid">
-        <div class="loading"><span class="spinner"></span> Loading courses…</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Featured workshop ===== -->
-  <section class="section" id="workshop" style="padding-top:0;">
-    <div class="container">
-      <div class="featured reveal">
+    <!-- Main -->
+    <main class="dash-main">
+      <div class="dash-head">
         <div>
-          <span class="tag">★ Featured Workshop</span>
-          <h3>Google Cloud &amp; AI Workshop</h3>
-          <p class="muted">By <b style="color:#fff">Chandan Kumar</b> — hands-on Cloud + AI. Enroll as a regular course and pay the fee, or explore the dedicated workshop site.</p>
-          <div class="price">₹6,499</div>
-          <a href="#" id="workshopBtn" class="btn btn-gold" target="_blank" rel="noopener">View Details →</a>
+          <h1 id="viewTitle">Dashboard</h1>
+          <p class="hello" id="hello"></p>
         </div>
-        <div class="featured-side"><div class="emoji">☁️</div></div>
+        <div class="row-gap" id="headActions"></div>
       </div>
-    </div>
-  </section>
 
-  <!-- ===== Teacher ===== -->
-  <section class="section" id="teacher" style="padding-top:0;">
-    <div class="container">
-      <h2 class="section-title reveal">Meet Your <span class="gold">Mentor</span></h2>
-      <p class="section-sub reveal"></p>
-      <div class="teacher reveal">
-        <img src="public/pankaj.jpg" alt="Pankaj Pandey — Founder & Lead Trainer" onerror="this.style.display='none'" />
-        <div>
-          <h3>Pankaj Pandey</h3>
-          <div class="role">Founder &amp; Lead Trainer</div>
-          <p>Pankaj Pandey SOFT SKILL ZONE ke founder aur lead trainer hain. Unka mission hai students ko 0 se AI expert banana — practical, industry-focused training ke saath, taaki har student office work aur freelancing dono me confident ho. Basic computer se lekar advanced AI tools tak, sab kuch real examples aur live practice ke through sikhaya jaata hai.</p>
+      <!-- Dashboard view -->
+      <section id="view-dashboard">
+        <div class="stat-grid" id="statGrid">
+          <div class="loading"><span class="spinner"></span> Loading…</div>
         </div>
-      </div>
-    </div>
-  </section>
+        <div class="panel">
+          <h2>Students per Course</h2>
+          <div id="chart" class="bars"><div class="empty">No data yet.</div></div>
+        </div>
+      </section>
 
-  <!-- ===== Contact ===== -->
-  <section class="section" id="contact" style="padding-top:0;">
-    <div class="container">
-      <h2 class="section-title reveal">Get in <span class="gold">Touch</span></h2>
-      <p class="section-sub reveal">Visit us or send an enquiry — we'll call you back.</p>
-      <div class="contact-grid reveal">
-        <div>
-          <div class="info-row">
-            <div class="ic">📞</div>
-            <div><div class="lbl">Call us</div><a class="val" href="tel:6202856897">6202856897</a></div>
+      <!-- Students view -->
+      <section id="view-students" class="hide">
+        <div class="panel">
+          <div class="row-gap" style="justify-content:space-between;align-items:center;margin-bottom:16px;">
+            <input id="searchBox" class="" type="text" placeholder="Search name / phone / Student ID…"
+              style="flex:1;min-width:200px;padding:11px 14px;border-radius:10px;background:rgba(255,255,255,.06);border:1px solid var(--card-border);color:#fff;" />
+            <button class="btn btn-gold btn-sm" id="addStudentBtn">+ Add Student</button>
           </div>
-          <div class="info-row">
-            <div class="ic">📍</div>
-            <div><div class="lbl">Address</div><div class="val">Near Gym Town, Mission Road Pakri, Ara, Bihar</div></div>
+          <div class="table-wrap">
+            <table class="data">
+              <thead><tr><th>Student ID</th><th>Name</th><th>Phone</th><th>Course</th><th>Total</th><th>Paid</th><th>Pending</th><th>Status</th></tr></thead>
+              <tbody id="studentsBody"><tr><td colspan="8" class="loading"><span class="spinner"></span> Loading…</td></tr></tbody>
+            </table>
           </div>
-          <iframe class="map-embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps?q=Mission+Road+Pakri+Ara+Bihar&output=embed" title="Map"></iframe>
         </div>
-        <div class="form-card">
-          <h3 style="margin-bottom:16px;font-size:19px;">Send an Enquiry</h3>
-          <form id="enquiryForm">
-            <div class="field">
-              <label for="enqName">Your Name</label>
-              <input id="enqName" type="text" required placeholder="Full name" />
-            </div>
-            <div class="field">
-              <label for="enqPhone">Phone Number</label>
-              <input id="enqPhone" type="tel" required placeholder="10-digit mobile" />
-            </div>
-            <div class="field">
-              <label for="enqCourse">Course of Interest</label>
-              <select id="enqCourse"><option value="">Select a course (optional)</option></select>
-            </div>
-            <button type="submit" class="btn btn-gold btn-block" id="enqSubmit">Submit Enquiry</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <!-- ===== Footer ===== -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <span class="brand" style="font-size:20px;">SOFT SKILL <span class="gold">ZONE</span></span>
-          <p style="margin-top:10px;">Learn AI.. Lead Future. — Computer &amp; AI training institute in Ara, Bihar. 0 se AI Expert bano.</p>
+      <!-- Courses view -->
+      <section id="view-courses" class="hide">
+        <div class="panel">
+          <div class="row-gap" style="justify-content:space-between;align-items:center;margin-bottom:16px;">
+            <h2 style="margin:0;">All Courses</h2>
+            <button class="btn btn-gold btn-sm" id="addCourseBtn">+ Add Course</button>
+          </div>
+          <div class="table-wrap">
+            <table class="data">
+              <thead><tr><th>ID</th><th>Name</th><th>Category</th><th>Duration</th><th>Fee</th><th>Status</th><th></th></tr></thead>
+              <tbody id="coursesBody"><tr><td colspan="7" class="loading"><span class="spinner"></span> Loading…</td></tr></tbody>
+            </table>
+          </div>
         </div>
-        <div>
-          <h4>Quick Links</h4>
-          <a href="#courses">Courses</a>
-          <a href="#workshop">Workshop</a>
-          <a href="#teacher">Teacher</a>
-          <a href="login.html">Login</a>
-        </div>
-        <div>
-          <h4>Contact</h4>
-          <a href="tel:6202856897">📞 6202856897</a>
-          <p>📍 Near Gym Town, Mission Road Pakri, Ara, Bihar</p>
-        </div>
-      </div>
-      <div class="copyright">© <span id="year"></span> SOFT SKILL ZONE. All rights reserved.</div>
+      </section>
+    </main>
+  </div>
+
+  <!-- ===== Add Student modal ===== -->
+  <div class="modal-backdrop" id="addStudentModal">
+    <div class="modal">
+      <button class="modal-close" data-close>&times;</button>
+      <h2>Add Student</h2>
+      <form id="addStudentForm">
+        <div class="field"><label>Full Name</label><input id="asName" type="text" required /></div>
+        <div class="field"><label>Email</label><input id="asEmail" type="email" required /></div>
+        <div class="field"><label>Phone</label><input id="asPhone" type="tel" /></div>
+        <div class="field"><label>Course</label><select id="asCourse" required></select></div>
+        <div class="field"><label>Total Fee (₹)</label><input id="asFee" type="number" min="0" /></div>
+        <div class="field"><label>Join Date</label><input id="asDate" type="date" /></div>
+        <p class="muted" style="font-size:13px;margin-bottom:14px;">A Student ID + temporary password will be generated and emailed to the student automatically.</p>
+        <button type="submit" class="btn btn-gold btn-block" id="asSubmit">Create Student &amp; Send Email</button>
+      </form>
     </div>
-  </footer>
+  </div>
+
+  <!-- ===== Student Detail modal ===== -->
+  <div class="modal-backdrop" id="detailModal">
+    <div class="modal" style="max-width:560px;">
+      <button class="modal-close" data-close>&times;</button>
+      <div id="detailBody"><div class="loading"><span class="spinner"></span> Loading…</div></div>
+    </div>
+  </div>
+
+  <!-- ===== Record Payment modal ===== -->
+  <div class="modal-backdrop" id="payModal">
+    <div class="modal">
+      <button class="modal-close" data-close>&times;</button>
+      <h2>Record Payment</h2>
+      <p class="muted" id="payFor" style="margin-bottom:14px;font-size:14px;"></p>
+      <form id="payForm">
+        <div class="field"><label>Amount (₹)</label><input id="payAmount" type="number" min="1" required /></div>
+        <div class="field"><label>Mode</label>
+          <select id="payMode" required>
+            <option value="Cash">Cash</option>
+            <option value="UPI">UPI</option>
+            <option value="Card">Card</option>
+            <option value="Bank">Bank</option>
+          </select>
+        </div>
+        <div class="field"><label>Date</label><input id="payDate" type="date" /></div>
+        <button type="submit" class="btn btn-gold btn-block" id="paySubmit">Record &amp; Email Receipt</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===== Course form modal ===== -->
+  <div class="modal-backdrop" id="courseModal">
+    <div class="modal">
+      <button class="modal-close" data-close>&times;</button>
+      <h2 id="courseModalTitle">Add Course</h2>
+      <form id="courseForm">
+        <input type="hidden" id="cId" />
+        <div class="field"><label>Name</label><input id="cName" type="text" required /></div>
+        <div class="field"><label>Category</label><input id="cCategory" type="text" /></div>
+        <div class="field"><label>Outcome</label><input id="cOutcome" type="text" /></div>
+        <div class="field"><label>Duration</label><input id="cDuration" type="text" placeholder="e.g. 4 Months" /></div>
+        <div class="field"><label>Fee (₹)</label><input id="cFee" type="number" min="0" /></div>
+        <div class="field"><label><input id="cActive" type="checkbox" checked style="width:auto;margin-right:8px;" />Active</label></div>
+        <button type="submit" class="btn btn-gold btn-block" id="cSubmit">Save Course</button>
+      </form>
+    </div>
+  </div>
 
   <script src="js/config.js"></script>
   <script src="js/auth.js"></script>
   <script src="js/api.js"></script>
   <script src="js/ui.js"></script>
-  <script src="js/landing.js"></script>
+  <script src="js/admin.js"></script>
 </body>
 </html>
